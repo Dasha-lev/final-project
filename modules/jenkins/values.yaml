@@ -1,0 +1,23 @@
+controller:
+  componentName: "jenkins-controller"
+  image: "jenkins/jenkins"
+  tag: "lts"
+  
+  resources:
+    requests:
+      cpu: "500m"
+      memory: "1024Mi"
+    limits:
+      cpu: "1"
+      memory: "2048Mi"
+
+  serviceType: "ClusterIP"
+
+  persistence:
+    enabled: true
+    size: "10Gi"
+
+agent:
+  enabled: true
+  image: "jenkins/inbound-agent"
+  tag: "latest"

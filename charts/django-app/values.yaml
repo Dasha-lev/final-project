@@ -1,0 +1,19 @@
+replicaCount: 2
+
+image:
+  repository: "123456789012.dkr.ecr.us-west-2.amazonaws.com/lesson-7-ecr" 
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  port: 80
+
+hpa:
+  minReplicas: 2
+  maxReplicas: 6
+  targetCPUUtilizationPercentage: 70
+
+configMap:
+  DEBUG: "True"
+  ALLOWED_HOSTS: "*"
