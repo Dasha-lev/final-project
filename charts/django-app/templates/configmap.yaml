@@ -6,3 +6,8 @@ data:
   {{- range $key, $val := .Values.configMap }}
   {{ $key }}: {{ $val | quote }}
   {{- end }}
+  DB_ENGINE: "django.db.backends.postgresql"
+  DB_HOST: "{{ .Values.database.host }}"
+  DB_PORT: "5432"
+  DB_NAME: "djangodb"
+  DB_USER: "dbadmin"
